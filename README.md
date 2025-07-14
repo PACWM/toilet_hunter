@@ -1,9 +1,9 @@
 ![Toilet Hunter Cover](./assets/splashscreenPNG2.png)
 
-# 🚽 Toilet Trouble: The Last Dash
+# 🚽 Toilet Hunter: The Last Dash
 
 ## Overview
-**Toilet Trouble: The Last Dash** is a frantic, comedic action game where you must dash to the restroom before your bladder meter overflows! Dodge obstacles, manage your speed, and reach the toilet in under 60 seconds.
+**Toilet Hunter: The Last Dash** is a frantic, comedic action game where you must dash to the restroom before your bladder meter overflows! Dodge obstacles, manage your speed, and reach the toilet in under 60 seconds.
 
 ---
 
