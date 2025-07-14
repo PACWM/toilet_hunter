@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtn5qn4y0v3ui"]
+[gd_scene load_steps=14 format=3 uid="uid://dtn5qn4y0v3ui"]
 
 [ext_resource type="Script" uid="uid://ddg1s74x3hul2" path="res://obj/player/player.gd" id="1_vpqer"]
 [ext_resource type="Texture2D" uid="uid://dwvkgq8b7p08w" path="res://assets/1.png" id="2_sqqi0"]
+[ext_resource type="AudioStream" uid="uid://dei5owaebye8l" path="res://assets/audio/spicy_faart.mp3" id="3_xopso"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xopso"]
 atlas = ExtResource("2_sqqi0")
@@ -102,6 +103,9 @@ wait_time = 5.0
 
 [node name="safe" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="audio_spicy_fart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xopso")
 
 [connection signal="timeout" from="slowed_down" to="." method="_on_slowed_down_timeout"]
 [connection signal="timeout" from="safe" to="." method="_on_safe_timeout"]

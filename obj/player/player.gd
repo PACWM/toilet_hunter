@@ -16,6 +16,7 @@ var get_knocked := true
 @onready var slowed_down_timer: Timer = $slowed_down
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var safe: Timer = $safe
+@onready var audio_spicy_fart: AudioStreamPlayer2D = $audio_spicy_fart
 
 func _physics_process(delta: float) -> void:
 	if GameHandler.game_running:
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 				if spicy_buff:
 					velocity.x *= 2
 					velocity.y = JUMP_VELOCITY * 1.5
+					audio_spicy_fart.play()
 
 			if slowed_down:
 				velocity *= 0.5

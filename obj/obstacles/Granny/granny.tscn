@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://oc8yrelqlflc"]
+[gd_scene load_steps=5 format=3 uid="uid://oc8yrelqlflc"]
 
 [ext_resource type="Script" uid="uid://cvm33thw3i78p" path="res://obj/obstacles/Granny/granny.gd" id="1_iah3r"]
 [ext_resource type="Texture2D" uid="uid://cxoof3ylojdls" path="res://assets/3.png" id="2_k45it"]
+[ext_resource type="AudioStream" uid="uid://drx76bv8mac1r" path="res://assets/audio/witchy-laugh-1-37455.mp3" id="3_4dd7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sq60"]
 size = Vector2(59, 73)
@@ -26,5 +27,8 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(29.5, -36.5)
 shape = SubResource("RectangleShape2D_6sq60")
+
+[node name="laught" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4dd7h")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

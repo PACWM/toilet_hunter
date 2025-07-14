@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED := -60.0 # Very slow leftward movement
 @onready var slowed_down: Timer = $slowed_down
+@onready var laught: AudioStreamPlayer2D = $laught
 
 func _physics_process(_delta: float) -> void:
 	velocity.x = SPEED
@@ -16,3 +17,4 @@ func _on_area_2d_body_entered(body):
 		slowed_down.start()
 		await slowed_down.timeout
 		body.slowed_down = false
+		laught.play()

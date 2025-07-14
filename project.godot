@@ -15,6 +15,7 @@ run/main_scene="uid://dvd4bl0vnigw2"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://cbk6ngpih2cw"
 config/icon="uid://bebwh0van5h50"
+config/tags=PackedStringArray("game_jam")
 
 [autoload]
 

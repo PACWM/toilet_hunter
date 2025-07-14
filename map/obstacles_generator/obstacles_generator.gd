@@ -10,7 +10,8 @@ var spawn_timer := 0.0
 
 func _process(delta: float) -> void:
 	if not GameHandler.game_running:
-		return
+		for child in get_children():
+			child.queue_free()
 
 	spawn_timer += delta
 	if spawn_timer >= spawn_interval:
