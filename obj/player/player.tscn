@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtn5qn4y0v3ui"]
+
+[ext_resource type="Script" uid="uid://ddg1s74x3hul2" path="res://obj/player/player.gd" id="1_vpqer"]
+[ext_resource type="Texture2D" uid="uid://dwvkgq8b7p08w" path="res://assets/1.png" id="2_sqqi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xopso"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(575, 544, 276, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hle3s"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(299, 544, 276, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r86bn"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(23, 116, 276, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv0ba"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(299, 116, 276, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2237b"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(575, 116, 276, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6owtx"]
+atlas = ExtResource("2_sqqi0")
+region = Rect2(23, 544, 276, 372)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyijb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xopso")
+}],
+"loop": true,
+"name": &"defeat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hle3s")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r86bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv0ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2237b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6owtx")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0fxy"]
+size = Vector2(54, 72)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpqer"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqqi0"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_vpqer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_vyijb")
+animation = &"defeat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c0fxy")
+
+[node name="Dash_cooldown" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
+[node name="dash_cooldown" type="ProgressBar" parent="."]
+offset_left = -24.0
+offset_top = -75.0
+offset_right = 25.0
+offset_bottom = -67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vpqer")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sqqi0")
+max_value = 4.5
+fill_mode = 1
+show_percentage = false
+
+[node name="slowed_down" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="safe" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="slowed_down" to="." method="_on_slowed_down_timeout"]
+[connection signal="timeout" from="safe" to="." method="_on_safe_timeout"]

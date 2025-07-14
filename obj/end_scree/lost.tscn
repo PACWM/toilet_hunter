@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://fejwmbkweedh"]
+
+[ext_resource type="Texture2D" uid="uid://d21losy4to6tq" path="res://assets/zippone/10.png" id="1_fl5uq"]
+
+[node name="lost" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 15.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 25.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="29" type="Sprite2D" parent="."]
+position = Vector2(574.5, 335.5)
+scale = Vector2(0.629883, 0.629883)
+texture = ExtResource("1_fl5uq")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbuaewrpwta8w"]
+
+[ext_resource type="Script" uid="uid://bqsuhs5tn2qis" path="res://obj/bladder_meter/bladder_meter.gd" id="1_bp0u7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5s2j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgusr"]
+bg_color = Color(0.556863, 0.435294, 0, 1)
+
+[node name="BladderMeter" type="ProgressBar"]
+offset_right = 643.0
+offset_bottom = 61.0
+theme_override_styles/background = SubResource("StyleBoxFlat_t5s2j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xgusr")
+show_percentage = false
+script = ExtResource("1_bp0u7")

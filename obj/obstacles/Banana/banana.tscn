@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c730idrgdg0tq"]
+
+[ext_resource type="Script" uid="uid://dc71lgx6g8iah" path="res://obj/obstacles/Banana/banana.gd" id="1_o40nc"]
+[ext_resource type="Texture2D" uid="uid://6ruum33urtj7" path="res://assets/zippone/16.png" id="2_sby24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmu16"]
+size = Vector2(62, 57)
+
+[node name="BANANA" type="StaticBody2D"]
+script = ExtResource("1_o40nc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31, -32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_sby24")
+region_enabled = true
+region_rect = Rect2(141.505, 175.051, 311.853, 328.69)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(31, -28.5)
+shape = SubResource("RectangleShape2D_qmu16")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

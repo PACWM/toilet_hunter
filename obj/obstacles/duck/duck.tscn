@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bny2qon8t7o1u"]
+
+[ext_resource type="Script" uid="uid://cqekrii07vt1u" path="res://obj/obstacles/duck/duck.gd" id="1_lacju"]
+[ext_resource type="Texture2D" uid="uid://c824pktyt3wbp" path="res://assets/5.png" id="2_enb1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg864"]
+size = Vector2(62, 76)
+
+[node name="duck" type="CharacterBody2D"]
+script = ExtResource("1_lacju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31, -39)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_enb1l")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(343.618, 53.3718, 306.533, 384.346)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(31, -38)
+shape = SubResource("RectangleShape2D_rg864")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
